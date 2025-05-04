@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeService } from 'app/font.awesome.service';
+import { USER } from 'app/user.profile';
 
 @Component({
      selector: 'app-header',
@@ -10,11 +10,13 @@ import { FontAwesomeService } from 'app/font.awesome.service';
      styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  isDarkMode = signal(false);
-  private fonts = inject(FontAwesomeService);
-  getIcon = computed(() => this.isDarkMode() ? 'moon' : 'sun')
+  user = USER;
+  private isDarkMode = signal(false);
+  getIcon = computed(() => this.isDarkMode() ? 'moon' : 'sun');
+  getName = computed(() => this.isDarkMode() ? 'Dark' : 'Light');
 
   constructor() {
+    inject(FontAwesomeService);
     const savedTheme = localStorage.getItem('theme');
 
     if (savedTheme) {

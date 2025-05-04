@@ -1,6 +1,10 @@
 <header>
-  <h2>FirstName LastName</h2>
+  <h2>
+    <span>{{ user.name }}</span>
+    <span>{{ user.title }}</span>
+  </h2>
   <button (click)="toggleTheme()">
+    <span>{{ getName() }}</span>
     <fa-icon [icon]="getIcon()" />
   </button>
 </header>

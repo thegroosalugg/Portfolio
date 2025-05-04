@@ -7,11 +7,27 @@ header {
   overflow-x: scroll;
 }
 
+h2 span {
+  display: block;
+  &:last-child {
+    font-size: 0.8rem;
+  }
+}
+
 button {
+  position: relative;
   width: 1.8rem;
   aspect-ratio: 1;
   margin-left: auto;
   border-radius: 50%;
   background: none;
   border: 1px solid var(--text-color);
+
+  span {
+    position: absolute;
+    font-size: 0.5rem;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%);
+  }
 }
