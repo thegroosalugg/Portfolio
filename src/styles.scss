@@ -2,8 +2,8 @@
 
 // #TheLoginovReset
 *, *::before, *::after { box-sizing: border-box; }
-*                      { margin: 0;  padding: 0; }
-
+*                      { margin: 0;  padding: 0; transition: var(--transition); }
+                                                 // apply color transition to all
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.2;
@@ -44,6 +44,7 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   --bg-color: var(--green-500);
   --text-color: var(--green-500);
   --gradient: radial-gradient(#dededeaa, #cfcfcfaa);
+  --transition: background 0.6s ease, color 0.6s ease;
 }
 
 .dark-theme {
