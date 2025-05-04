@@ -19,12 +19,39 @@ button                           {          cursor: pointer;        }
 
 a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   overflow-wrap: break-word;
-      font-size: inherit;
-    font-family: inherit;
-    font-weight: 400;
+           font: inherit;
+          color: inherit;
 }
 
 ::-webkit-scrollbar       { width: 1px; height: 1px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #fff; border-radius: 5px; }
 // ** Reset ends here **
+
+:root {
+  --gray-100: #efefef;
+  --gray-200: #dedede;
+  --gray-300: #cfcfcf;
+  --gray-400: #b3b3b3;
+  --gray-500: #a5a5a5;
+  --gray-600: #6e6e6e;
+  --gray-700: #3e3e3e;
+  --gray-800: #262626;
+  --gray-900: #1a1a1a;
+
+  --green-500: #79b03d;
+
+  --bg-color: var(--green-500);
+  --text-color: var(--green-500);
+  --gradient: radial-gradient(#dededeaa, #cfcfcfaa);
+}
+
+.dark-theme {
+  --bg-color: var(--gray-900);
+  --text-color: var(--gray-100);
+  --gradient: radial-gradient(
+    circle farthest-corner at 100% 300%,
+    #ca19a4b1,
+    #37166fff
+  );
+}
