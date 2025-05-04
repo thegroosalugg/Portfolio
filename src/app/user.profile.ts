@@ -3,6 +3,8 @@ export const USER = {
      title: 'FrontEnd Developer',
     github: 'https://github.com/thegroosalugg',
   linkedin: 'https://www.linkedin.com/in/vlog/',
+       img: { src: '/user.png', alt: 'User Photo' },
+     about: () => 'This is a paragraph. '.repeat(20),
     skills: [
     'typescript',
     'react',

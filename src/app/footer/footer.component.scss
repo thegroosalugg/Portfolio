@@ -1,8 +1,8 @@
 footer {
   padding: 1rem;
-  background: var(--bg-color);
+  background: var(--bg);
   color: var(--gray-100);
-  text-shadow: 0.2px 0.2px 1px #000;
+  text-shadow: var(--shadow);
   text-align: center;
   font-size: 0.6rem;
 }

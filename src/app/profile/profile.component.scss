@@ -1,0 +1,41 @@
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+img {
+  border-radius: var(--circle);
+  background: var(--bg);
+  width: 200px;
+  aspect-ratio: 1;
+}
+
+p {
+  max-width: 400px;
+  margin-bottom: 0.5rem;
+}
+
+section {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+a {
+  color: var(--accent);
+  border: var(--border);
+  border-radius: var(--round);
+  padding: 0.1rem;
+  width: 100px;
+  text-align: center;
+  transition: all 0.6s ease;
+
+  &:hover {
+    color: var(--hover);
+    border-color: var(--hover);
+    opacity: 0.6;
+  }
+}

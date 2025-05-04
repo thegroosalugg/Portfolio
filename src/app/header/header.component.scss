@@ -3,12 +3,13 @@ header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--text-color);
+  border-bottom: var(--border);
   overflow-x: scroll;
 }
 
 h2 span {
   display: block;
+
   &:last-child {
     font-size: 0.8rem;
   }
@@ -19,9 +20,9 @@ button {
   width: 1.8rem;
   aspect-ratio: 1;
   margin-left: auto;
-  border-radius: 50%;
+  border-radius: var(--circle);
   background: none;
-  border: 1px solid var(--text-color);
+  border: var(--border);
 
   span {
     position: absolute;

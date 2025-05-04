@@ -2,8 +2,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: var(--text-color);
-  // gradient with img url must be shorthand in one line. Gradient props must have transparency
+  color: var(--accent);
+  // gradient && img: url must be shorthand single line. Colors must have transparency
   background: var(--gradient),
     url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 }
@@ -11,13 +11,4 @@
 main {
   flex: 1;
   padding: 1rem 10%;
-}
-
-p {
-  @for $i from 1 through 9 {
-    &:nth-of-type(#{$i}) {
-      color: var(--blue-#{$i}00);
-      background: var(--gray-#{10 - $i}00);
-    }
-  }
 }

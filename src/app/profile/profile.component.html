@@ -1,0 +1,16 @@
+<article>
+  <img [src]="user.img.src" [alt]="user.img.alt" />
+  <div>
+    <p>{{ user.about() }}</p>
+    <section>
+      <a [href]="user.github" target="_blank">
+        <fa-icon [icon]="['fab', 'github']" />
+        GitHub
+      </a>
+      <a [href]="user.linkedin" target="_blank">
+        <fa-icon [icon]="['fab', 'linkedin']" />
+        Linkedin
+      </a>
+    </section>
+  </div>
+</article>
