@@ -8,10 +8,12 @@ import { USER } from 'app/user.profile';
       imports: [FontAwesomeModule],
   templateUrl: './header.component.html',
      styleUrl: './header.component.scss',
+         host: { '[class.hidden]': 'isHidden()' }
 })
 export class HeaderComponent {
   user = USER;
   private isDarkMode = signal(false);
+  isHidden = signal(false);
   getIcon = computed(() => this.isDarkMode() ? 'moon' : 'sun');
   getName = computed(() => this.isDarkMode() ? 'Dark' : 'Light');
 
@@ -29,5 +31,9 @@ export class HeaderComponent {
     this.isDarkMode.update((v) => !v);
     localStorage.setItem('theme', JSON.stringify({ isDark: this.isDarkMode() }));
     document.body.classList.toggle('dark-theme', this.isDarkMode());
+  }
+
+  toggleMenu() {
+    this.isHidden.update((v) => !v);
   }
 }

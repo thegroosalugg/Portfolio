@@ -3,8 +3,11 @@
     <span>{{ user.name }}</span>
     <span>{{ user.title }}</span>
   </h2>
-  <button (click)="toggleTheme()">
+  <button class="theme-btn" (click)="toggleTheme()">
     <fa-icon [icon]="getIcon()" />
     <span>{{ getName() }}</span>
   </button>
 </header>
+<button class="banner-btn" (click)="toggleMenu()">
+  <fa-icon [icon]="'chevron-down'" />
+</button>

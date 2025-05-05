@@ -2,6 +2,11 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: transform 1s ease;
+
+  &.hidden {
+    transform: translate(0, -80%);
+  }
 }
 
 header {
@@ -28,11 +33,10 @@ h2 span {
   }
 }
 
-button {
+.theme-btn {
   position: relative;
   margin-left: auto;
   width: 1.8rem;
-  flex-shrink: 0;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -50,17 +54,30 @@ button {
   }
 }
 
-@media screen and (max-width: 512px) {
+.banner-btn {
+  margin: 0 auto;
+  display: block;
+  background: none;
+  border: none;
+
+  ::ng-deep svg {
+    color: var(--accent);
+    width: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 384px) {
   header {
     padding: 0.4rem;
   }
 
-  h2 span, h2 span:last-child {
+  h2 span,
+  h2 span:last-child {
     font-size: 0.5rem;
     padding: 0 0.1rem;
   }
 
-  button {
+  .theme-btn {
     width: 1rem;
     height: 1rem;
 
@@ -68,8 +85,16 @@ button {
       font-size: 0.3rem;
     }
 
-    ::ng-deep svg  {
+    ::ng-deep svg {
       width: 0.5rem;
+    }
+  }
+
+  .banner-btn {
+    margin: -0.3rem auto;
+
+    ::ng-deep svg {
+      width: 0.7rem;
     }
   }
 }
