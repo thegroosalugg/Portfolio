@@ -1,11 +1,19 @@
-<ul>
+<ul
+  #list
+  [class.row]="isRow()"
+  (click)="toggleGrid()"
+  [@heightChange]="{
+    value: isRow(),
+    params: { startHeight: height() }
+  }"
+>
   @for (skill of user.skills; track skill) {
-  <li>
-    <p>{{ skill }}</p>
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <title>{{ skill }}</title>
-       <path [attr.d]="getIcon(skill)" fill="currentColor"/>
-    </svg>
-  </li>
+    <li>
+      <p>{{ skill }}</p>
+      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <title>{{ skill }}</title>
+        <path [attr.d]="getIcon(skill)" fill="currentColor" />
+      </svg>
+    </li>
   }
 </ul>
