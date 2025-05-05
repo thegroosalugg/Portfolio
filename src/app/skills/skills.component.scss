@@ -1,0 +1,38 @@
+ul {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 450px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  justify-items: self-end;
+  border: var(--border);
+  border-radius: var(--round);
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--hover);
+    color: var(--gray-100);
+
+    svg {
+      color: var(--gray-100);
+    }
+  }
+}
+
+p {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+svg {
+  width: 1rem;
+  color: var(--accent);
+}
