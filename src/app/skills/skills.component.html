@@ -4,7 +4,7 @@
   (click)="toggleGrid()"
   [@heightChange]="{
     value: isRow(),
-    params: { startHeight: height() }
+    params: { startHeight: height(), startWidth: width() }
   }"
 >
   @for (skill of user.skills; track skill) {

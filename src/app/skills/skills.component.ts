@@ -14,7 +14,8 @@ export class SkillsComponent {
   user   = USER;
   icons  = ICONS;
   isRow  = signal(false);
-  height = signal(328); // temp skip initial render height animation fix
+  height = signal(328); // initial CSS values
+  width  = signal(450);
   list   = viewChild.required<ElementRef>('list');
 
   getSrc(icon: string) {
@@ -26,7 +27,9 @@ export class SkillsComponent {
   }
 
   toggleGrid() {
-    this.height.set(this.list().nativeElement.clientHeight);
+    const { clientHeight, clientWidth } = this.list().nativeElement;
+    this.height.set(clientHeight);
+    this.width.set(clientWidth);
     this.isRow.update((v) => !v);
   }
 }

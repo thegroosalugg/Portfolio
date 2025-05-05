@@ -11,13 +11,17 @@ export const heightAnimation = trigger('heightChange', [
   transition(
     '* => *',
     [
-      query(':self', [style({ height: '{{startHeight}}px' })]),
-      query('li',    [style({ opacity: 0 })]),
+      query(':self', [
+        style({ height: '{{startHeight}}px', maxWidth: '{{startWidth}}px' }),
+      ]),
+      query('li', [style({ opacity: 0 })]),
       group([
-        query(':self', [animate('0.5s ease', style({ height: '*' }))]),
-        query('li',    [animate('0.5s ease', style({ opacity: 1 }))]),
+        query(':self', [
+          animate('0.5s ease', style({ height: '*', maxWidth: '*' })),
+        ]),
+        query('li', [animate('1s ease', style({ opacity: 1 }))]),
       ]),
     ],
-    { params: { startHeight: 0 } }
+    { params: { startHeight: 0, startWidth: 0 } }
   ),
 ]);
