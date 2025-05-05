@@ -1,28 +1,45 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 header {
   padding: 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: var(--text);
   border-bottom: var(--border);
   overflow-x: scroll;
 }
 
 h2 span {
   display: block;
+  font-family: "Cal Sans", sans-serif;
+  transition: all 0.4s ease;
 
   &:last-child {
     font-size: 0.8rem;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 2px;
+    padding: 0.1rem 0.25rem;
   }
 }
 
 button {
   position: relative;
-  width: 1.8rem;
-  aspect-ratio: 1;
   margin-left: auto;
-  border-radius: var(--circle);
+  width: 1.8rem;
+  flex-shrink: 0;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: var(--border);
+  border-radius: var(--circle);
 
   span {
     position: absolute;
@@ -30,5 +47,29 @@ button {
     top: 105%;
     left: 50%;
     transform: translate(-50%);
+  }
+}
+
+@media screen and (max-width: 512px) {
+  header {
+    padding: 0.4rem;
+  }
+
+  h2 span, h2 span:last-child {
+    font-size: 0.5rem;
+    padding: 0 0.1rem;
+  }
+
+  button {
+    width: 1rem;
+    height: 1rem;
+
+    span {
+      font-size: 0.3rem;
+    }
+
+    ::ng-deep svg  {
+      width: 0.5rem;
+    }
   }
 }

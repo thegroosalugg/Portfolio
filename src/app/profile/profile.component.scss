@@ -10,11 +10,13 @@ img {
   background: var(--bg);
   width: 200px;
   aspect-ratio: 1;
+  transition: background 0.5s ease;
 }
 
 p {
   max-width: 400px;
   margin-bottom: 0.5rem;
+  font-weight: 300;
 }
 
 section {
