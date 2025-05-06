@@ -1,0 +1,14 @@
+ul {
+  margin: 1rem auto;
+  max-width: 450px;
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+li {
+  padding: 0.25rem;
+  border: var(--border)
+}

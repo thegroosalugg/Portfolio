@@ -1,0 +1,9 @@
+<ul>
+  @for (project of projects; track project.name) {
+  <li>
+    <a [routerLink]="['/projects', project.name]">
+      {{ project.title }}
+    </a>
+  </li>
+  }
+</ul>

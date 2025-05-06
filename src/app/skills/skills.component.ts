@@ -1,5 +1,5 @@
 import { Component, ElementRef, signal, viewChild } from '@angular/core';
-import { USER } from 'app/user.profile';
+import { USER } from 'app/profile/user.profile';
 import { ICONS } from './icons';
 import { heightAnimation } from './skills.animations';
 

@@ -7,7 +7,13 @@ import { SkillsComponent } from "./skills/skills.component";
 
 @Component({
      selector: 'app-root',
-      imports: [RouterOutlet, HeaderComponent, FooterComponent, ProfileComponent, SkillsComponent],
+      imports: [
+        RouterOutlet,
+        HeaderComponent,
+        FooterComponent,
+        ProfileComponent,
+        SkillsComponent,
+      ],
   templateUrl: './app.component.html',
      styleUrl: './app.component.scss'
 })

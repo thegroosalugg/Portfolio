@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FontAwesomeService } from 'app/font.awesome.service';
-import { USER } from 'app/user.profile';
+import { USER } from 'app/profile/user.profile';
 
 @Component({
      selector: 'app-header',

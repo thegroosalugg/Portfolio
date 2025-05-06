@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { USER } from 'app/user.profile';
+import { USER } from 'app/profile/user.profile';
 
 @Component({
      selector: 'app-footer',
