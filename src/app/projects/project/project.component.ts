@@ -1,5 +1,14 @@
-import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, input } from '@angular/core';
+import {
+  ActivatedRouteSnapshot,
+  RedirectCommand,
+  ResolveFn,
+  Router,
+  RouterLink,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { PROJECTS } from '../projects';
+import { Project } from '../project.model';
 
 @Component({
      selector: 'app-project',
@@ -8,5 +17,19 @@ import { RouterLink } from '@angular/router';
      styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
-  slug = input.required();
+  project = input.required<Project>();
 }
+
+export const resolveProject: ResolveFn<Project> = (
+  activatedRoute: ActivatedRouteSnapshot,
+     routerState: RouterStateSnapshot
+) => {
+  const router = inject(Router);
+  const slug = activatedRoute.paramMap.get('slug');
+  if (slug) {
+    const project = PROJECTS.find(({ name }) => slug === name);
+    if (project) return project;
+  }
+  const root = router.parseUrl('projects');
+  return new RedirectCommand(root);
+};
