@@ -1,9 +1,19 @@
+<h1>My Projects</h1>
 <ul>
   @for (project of projects; track project.name) {
-  <li>
-    <a [routerLink]="['/projects', project.name]">
-      {{ project.title }}
-    </a>
-  </li>
+    <li>
+      <a [routerLink]="['/projects', project.name]">
+        <span>{{ project.name  }}</span>
+        <span>{{ project.title }}</span>
+        <div>
+          @for (tech of project.stack; track tech) {
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <title>{{ tech }}</title>
+              <path [attr.d]="getIcon(tech)" fill="currentColor" />
+            </svg>
+          }
+        </div>
+      </a>
+    </li>
   }
 </ul>
