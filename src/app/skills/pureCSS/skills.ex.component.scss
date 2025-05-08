@@ -1,0 +1,74 @@
+ul {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 450px;
+  border: var(--border);
+  border-radius: var(--round);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); // *3*cols/rows++
+  justify-items: end;
+  gap: 1rem;
+  overflow-x: scroll;
+  interpolate-size: allow-keywords; // Allows animation of height auto (set as inline)
+  transition: all 1s ease; // setting explicitly height fails.
+
+  &.row {
+    grid-auto-flow: column;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    overflow-x: hidden; // scroll when single row
+    li { animation: scroll-x 20s linear infinite, flash-in 1s ease; }
+  }
+}
+
+li {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  animation: flash-out 1s ease;
+
+  @starting-style {
+    animation: flash-out 5s ease !important;
+    animation-duration: 0s;
+  }
+
+  &:hover {
+    background: var(--hover);
+    color: var(--gray-100);
+
+    svg {
+      color: var(--gray-100);
+    }
+  }
+}
+
+p {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+svg {
+  min-width: 1rem;
+  color: var(--accent);
+}
+
+@keyframes scroll-x {
+  from { transform: translateX(0);    }
+  to   { transform: translateX(-100vw); }
+}
+
+@keyframes flash-in {
+    0% { opacity: 1; }
+   25% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// retrigger animation on class change
+@keyframes flash-out {
+    0% { opacity: 1; }
+   25% { opacity: 0; }
+  100% { opacity: 1; }
+}
