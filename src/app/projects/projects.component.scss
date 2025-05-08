@@ -5,8 +5,8 @@
 }
 
 h1 {
-  margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
+  margin-bottom: 0.2rem;
+  align-self: end;
   font-weight: 700;
   font-size: 1.2rem;
   color: var(--accent);
@@ -60,4 +60,10 @@ div {
 svg {
   width: 0.9rem;
   aspect-ratio: 1;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    margin-left: 4.5rem;
+  }
 }

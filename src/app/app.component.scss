@@ -11,3 +11,8 @@ main {
   flex: 1;
   padding: 1rem 10%;
 }
+
+#page {
+  view-transition-name: page;
+  height: 400px;
+}
