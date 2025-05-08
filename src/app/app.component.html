@@ -2,7 +2,8 @@
 <main>
   <app-profile />
   <app-skills />
-  <div>
+  <!-- view-transition-name: must match arg in styles.scss -->
+  <div [style.height.px]="400" style="view-transition-name: page;">
     <router-outlet />
   </div>
 </main>

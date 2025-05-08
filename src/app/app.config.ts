@@ -3,6 +3,7 @@ import {
   provideRouter,
   withComponentInputBinding,
   withRouterConfig,
+  withViewTransitions,
 } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
@@ -15,7 +16,8 @@ export const appConfig: ApplicationConfig = {
       routes,
       withComponentInputBinding(), // *bind URL params to input()
       // *pass params automatically to children of the bound route
-      withRouterConfig({ paramsInheritanceStrategy: 'always' })
+      withRouterConfig({ paramsInheritanceStrategy: 'always' }),
+      withViewTransitions() // *allows Page Transitions
     ),
     provideAnimationsAsync(), // *AngularAnimations enabled
   ],
