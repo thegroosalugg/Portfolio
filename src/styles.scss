@@ -71,17 +71,31 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
 }
 
 // view transitions must be defined globally
-@keyframes scale-out { to   { transform: scale(1.1); } }
-@keyframes scale-in  { from { transform: scale(0.9); } }
+@keyframes zoom-in-enter  { from { transform: scale(1.1); } }
+@keyframes zoom-in-leave  { to   { transform: scale(0.9); } }
+@keyframes zoom-out-enter { from { transform: scale(0.9); } }
+@keyframes zoom-out-leave { to   { transform: scale(1.1); } }
 
 // must name transition as arg
-::view-transition-old(page), // define duration for both
-::view-transition-new(page) {
- animation-duration: 0.7s;
- // list all animations here you want to play
- animation-name: -ua-view-transition-fade-in, scale-in;
+::view-transition-old(page-forward), // define duration for both
+::view-transition-new(page-forward) {
+  animation-duration: 0.7s; // list all animations here you want to play
+  animation-name: -ua-view-transition-fade-in, zoom-in-enter;
 } // -ua-view-transition-fade-in/out - Chrome default opacity fades
 
-::view-transition-old(page) { // overwrite above exit animations
- animation-name: -ua-view-transition-fade-out, scale-out;
+::view-transition-old(page-forward) { // overwrite above exit animations
+  animation-name: -ua-view-transition-fade-out, zoom-in-leave;
 }
+
+::view-transition-old(page-back),
+::view-transition-new(page-back) {
+  animation-duration: 0.7s;
+  animation-name: -ua-view-transition-fade-in, zoom-out-enter;
+}
+
+::view-transition-old(page-back) {
+  animation-name: -ua-view-transition-fade-out, zoom-out-leave;
+}
+
+.page-forward { view-transition-name: page-forward; }
+.page-back    { view-transition-name: page-back;    }
