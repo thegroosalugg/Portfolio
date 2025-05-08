@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // #TheLoginovReset
-*, *::before, *::after { box-sizing: border-box; } // transition not part of standard reset
-*                      { margin: 0;  padding: 0; transition: var(--transition); }
-                                                 // *apply color transition to all
+*, *::before, *::after { box-sizing: border-box; }
+*                      { margin: 0;  padding: 0; }
+
 body {
   font-family: "Montserrat", sans-serif; // *replace
   line-height: 1.2;
@@ -53,7 +53,7 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   --border: 1px solid var(--accent);
   --round: 4px;
   --circle: 50%;
-  --transition: background 0.6s ease, color 0.6s ease;
+  --transition: background 0.6s ease, color 0.6s ease, border-color 0.6s ease;
 }
 // IF colors flash on theme change - set the color/bg again inside component,
 // instead of in app.component.scss which applies color/bg globally

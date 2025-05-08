@@ -12,6 +12,7 @@ ul {
   justify-items: end; // *grid
   gap: 1rem;
   overflow-x: scroll;
+  transition: var(--transition);
 
   &.row {
     // flex-wrap: nowrap; // enable flex
@@ -27,30 +28,27 @@ ul {
 
 li {
   height: fit-content;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.5rem;
   cursor: pointer;
+  color: var(--accent);
+  transition: var(--transition);
+
+  p {
+    font-weight: 300;
+    font-size: 0.9rem;
+  }
+
+  svg {
+    min-width: 1rem;
+  }
 
   &:hover {
     background: var(--hover);
     color: var(--gray-100);
-
-    svg {
-      color: var(--gray-100);
-    }
   }
-}
-
-p {
-  font-weight: 300;
-  font-size: 0.9rem;
-}
-
-svg {
-  min-width: 1rem;
-  color: var(--accent);
 }
 
 @keyframes scroll-x {
