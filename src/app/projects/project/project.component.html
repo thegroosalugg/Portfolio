@@ -9,10 +9,9 @@
         [routerLinkActiveOptions]="{ exact: true }"
       >
         Home
-      </a
-      >
+      </a>
       <a [routerLink]="['./', 'about']" routerLinkActive="active">About</a>
-      <a [routerLink]="['./', 'stack']" routerLinkActive="active">Stack</a>
+      <a [routerLink]="['./', 'stack']" routerLinkActive="active-last">Stack</a>
     </div>
   </section>
   <a routerLink="/projects">
@@ -24,12 +23,14 @@
   <router-outlet />
 </div>
 <footer>
-  <a [href]="project().link" target="_blank">
-    <fa-icon icon="globe" />
-    Demo
-  </a>
-  <a [href]="project().github" target="_blank">
-    <fa-icon [icon]="['fab', 'github']" />
-    GitHub
-  </a>
+  <div>
+    <a [href]="project().link" target="_blank">
+      <fa-icon icon="globe" />
+      Demo
+    </a>
+    <a [href]="project().github" target="_blank">
+      <fa-icon [icon]="['fab', 'github']" />
+      GitHub
+    </a>
+  </div>
 </footer>

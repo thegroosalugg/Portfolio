@@ -14,13 +14,24 @@ header {
   gap: 0.5rem;
   color: var(--gray-100);
   transition: var(--transition);
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar { height: 0; }
 
   a {
+    border: 1px solid transparent;
+    border-bottom: none;
     transition: var(--transition);
 
-    &:hover, &.active {
+    &:hover, &.active, &.active-last:hover {
       color: var(--hover);
       background: var(--gray-100);
+    }
+
+    &.active-last {
+      color: var(--gray-100);
+      background: var(--hover);
+      border-color: var(--gray-100);
     }
   }
 
@@ -30,6 +41,7 @@ header {
     text-align: end;
     font-size: 1.5rem;
     font-weight: 700;
+    border: none;
   }
 
   section {
@@ -53,6 +65,7 @@ header {
 
       a {
         padding: 0.5rem;
+        border-radius: 4px 4px 0 0;
       }
     }
   }
@@ -63,24 +76,30 @@ header {
 }
 
 footer {
-  margin: 0.5rem auto;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
+  padding: 0.5rem;
+  max-width: 100%;
+  overflow-x: scroll;
 
-  a {
-    padding: 0.25rem 0.5rem;
-    font-size: 1.2rem;
-    color: var(--gray-100);
-    background: var(--hover);
-    border: 1px solid var(--gray-100);
-    border-radius: var(--round);
-    transition: var(--transition);
+  div {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
 
-    &:hover {
-      color: var(--hover);
-      background: var(--gray-100);
+    a {
+      padding: 0.25rem 0.5rem;
+      font-size: 1.2rem;
+      color: var(--gray-100);
+      background: var(--hover);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--round);
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--hover);
+        background: var(--gray-100);
+      }
     }
   }
 }

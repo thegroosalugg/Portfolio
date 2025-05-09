@@ -1,7 +1,8 @@
 p {
   padding: 1rem;
-  display: flex;
-  align-items: center;
   height: 100%;
-  color: var(--accent);
+  color: var(--hover);
+  background: var(--gray-200);
+  text-shadow: var(--shadow);
+  overflow-y: scroll;
 }
