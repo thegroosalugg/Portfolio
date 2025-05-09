@@ -1,2 +1,21 @@
-<h2>{{ project().title }}</h2>
-<a routerLink="/projects">Back</a>
+<header>
+  <div>
+    <h2>{{ project().name }}</h2>
+    <h3>{{ project().title }}</h3>
+  </div>
+  <a routerLink="/projects">
+    <fa-icon icon="arrow-left" />
+    BACK
+  </a>
+</header>
+<img [src]="'/snapshots/' + project().name + '.jpg'" [alt]="project().name" />
+<footer>
+  <a [href]="project().link" target="_blank">
+    <fa-icon icon="globe" />
+    Demo
+  </a>
+  <a [href]="project().github" target="_blank">
+    <fa-icon [icon]="['fab', 'github']" />
+    GitHub
+  </a>
+</footer>

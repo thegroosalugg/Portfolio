@@ -9,15 +9,21 @@ import {
 } from '@angular/router';
 import { PROJECTS } from '../projects';
 import { Project } from '../project.model';
+import { FontAwesomeService } from 'app/font.awesome.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
      selector: 'app-project',
-      imports: [RouterLink],
+      imports: [RouterLink, FontAwesomeModule],
   templateUrl: './project.component.html',
      styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
   project = input.required<Project>();
+
+  constructor() {
+    inject(FontAwesomeService)
+  }
 }
 
 export const resolveProject: ResolveFn<Project> = (
