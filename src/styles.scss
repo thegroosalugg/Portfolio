@@ -40,14 +40,12 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   --gray-900: #1a1a1a;
 
   --green-500: #72964b;
-  --green-600: #6b8a4a;
-
   --purple-500: #37166f;
 
   --bg: var(--green-500);
   --accent: var(--green-500);
   --text: var(--gray-100);
-  --hover: var(--green-600);
+  --hover: var(--green-500);
   --gradient: radial-gradient(#dededeaa, #cfcfcfaa);
   --shadow: 0.2px 0.2px 1px #000;
   --border: 1px solid var(--accent);
