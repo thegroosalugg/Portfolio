@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PROJECTS } from './projects';
+import { Project } from './project.model';
 import { RouterLink } from '@angular/router';
 import { ICONS } from 'app/skills/icons';
 
@@ -12,6 +13,10 @@ import { ICONS } from 'app/skills/icons';
 export class ProjectsComponent {
   projects = PROJECTS;
      icons = ICONS;
+
+  getStacks(project: Project) {
+    return [...project.stack, ...project.deploy]
+  }
 
   getIcon(icon: string) {
     return this.icons[icon as keyof typeof this.icons];

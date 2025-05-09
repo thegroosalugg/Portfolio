@@ -7,7 +7,7 @@
         <span>{{ project.title }}</span>
         <img [src]="'/snapshots/' + project.name + '.jpg'" [alt]="project.name" />
         <div>
-          @for (tech of project.stack; track tech) {
+          @for (tech of getStacks(project); track tech) {
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>{{ tech }}</title>
               <path [attr.d]="getIcon(tech)" fill="currentColor" />
