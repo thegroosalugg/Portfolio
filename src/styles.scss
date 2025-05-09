@@ -55,7 +55,7 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   --circle: 50%;
   --transition: background 0.6s ease, color 0.6s ease, border-color 0.6s ease;
 }
-// IF colors flash on theme change - set the color/bg again inside component,
+// IF colors fade on theme change - set the color/bg again inside component,
 // instead of in app.component.scss which applies color/bg globally
 .dark-theme {
   --bg: var(--gray-900);
@@ -77,22 +77,32 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
 @keyframes zoom-out-leave { to   { transform: scale(1.1); } }
 
 // must name transition as arg
-::view-transition-old(page-forward), // define duration for both
-::view-transition-new(page-forward) {
+::view-transition-old(zoom-in), // define duration for both
+::view-transition-new(zoom-in) {
   animation-duration: 0.7s; // list all animations here you want to play
   animation-name: -ua-view-transition-fade-in, zoom-in-enter;
 } // -ua-view-transition-fade-in/out - Chrome default opacity fades
 
-::view-transition-old(page-forward) { // overwrite above exit animations
+::view-transition-old(zoom-in) { // overwrite above exit animations
   animation-name: -ua-view-transition-fade-out, zoom-in-leave;
 }
 
-::view-transition-old(page-back),
-::view-transition-new(page-back) {
+::view-transition-old(zoom-out),
+::view-transition-new(zoom-out) {
   animation-duration: 0.7s;
   animation-name: -ua-view-transition-fade-in, zoom-out-enter;
 }
 
-::view-transition-old(page-back) {
+::view-transition-old(zoom-out) {
   animation-name: -ua-view-transition-fade-out, zoom-out-leave;
+}
+
+::view-transition-old(fade),
+::view-transition-new(fade) {
+  animation-duration: 0.7s;
+  animation-name: -ua-view-transition-fade-in;
+}
+
+::view-transition-old(fade) {
+  animation-name: -ua-view-transition-fade-out;
 }

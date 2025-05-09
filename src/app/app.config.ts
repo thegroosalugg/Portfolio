@@ -19,14 +19,17 @@ const transitionConfig = ({ transition }: ViewTransitionInfo) => {
         fragment: 'ignored',
      queryParams: 'ignored',
   } as const;
-  const   navTo = router.getCurrentNavigation()?.finalUrl?.toString();
-  const wrapper = document.getElementById('app-router');
+  const    navTo = router.getCurrentNavigation()?.finalUrl?.toString();
+  const  appPage = document.getElementById('app-router');
+  const projPage = document.getElementById('project-router');
   if (navTo === '/projects') {
-    wrapper?.style.setProperty('view-transition-name', 'page-forward');
+    appPage?.style.setProperty('view-transition-name', 'zoom-in');
   } else if (router.isActive(urlTree, config)) { // navFrom '/projects'
-    wrapper?.style.setProperty('view-transition-name', 'page-back');
+     appPage?.style.setProperty('view-transition-name', 'zoom-out');
+    projPage?.style.setProperty('view-transition-name', '');
   } else {
-    transition.skipTransition();
+     appPage?.style.setProperty('view-transition-name', '');
+    projPage?.style.setProperty('view-transition-name', 'fade');
   }
 };
 
