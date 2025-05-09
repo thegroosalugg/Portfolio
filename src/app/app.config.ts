@@ -19,7 +19,7 @@ const transitionConfig = ({ transition }: ViewTransitionInfo) => {
         fragment: 'ignored',
      queryParams: 'ignored',
   } as const;
-  const wrapper = document.getElementById('router');
+  const wrapper = document.getElementById('app-router');
   if (router.isActive(urlTree, config)) {
     wrapper?.style.setProperty('view-transition-name', 'page-back');
   } else {

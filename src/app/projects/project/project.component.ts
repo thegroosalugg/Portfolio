@@ -5,6 +5,8 @@ import {
   ResolveFn,
   Router,
   RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
   RouterStateSnapshot,
 } from '@angular/router';
 import { PROJECTS } from '../projects';
@@ -14,7 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
      selector: 'app-project',
-      imports: [RouterLink, FontAwesomeModule],
+      imports: [RouterLink, RouterLinkActive, RouterOutlet, FontAwesomeModule],
   templateUrl: './project.component.html',
      styleUrl: './project.component.scss'
 })
