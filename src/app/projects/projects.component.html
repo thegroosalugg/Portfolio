@@ -5,6 +5,7 @@
       <a [routerLink]="['/projects', project.name]">
         <span>{{ project.name  }}</span>
         <span>{{ project.title }}</span>
+        <img [src]="'/snapshots/' + project.name + '.jpg'" [alt]="project.name" />
         <div>
           @for (tech of project.stack; track tech) {
             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
