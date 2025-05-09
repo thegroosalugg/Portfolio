@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PROJECTS } from './projects';
 import { Project } from './project.model';
 import { RouterLink } from '@angular/router';
-import { ICONS } from 'app/skills/icons';
+import { IconService } from 'app/icon.service';
 
 @Component({
      selector: 'app-projects',
@@ -12,13 +12,14 @@ import { ICONS } from 'app/skills/icons';
 })
 export class ProjectsComponent {
   projects = PROJECTS;
-     icons = ICONS;
+  private icons = inject(IconService);
 
-  getStacks(project: Project) {
-    return [...project.stack, ...project.deploy]
+
+  getStacks({ stack, prod }: Project) {
+    return [...stack, ...prod]
   }
 
   getIcon(icon: string) {
-    return this.icons[icon as keyof typeof this.icons];
+    return this.icons.get(icon);
   }
 }

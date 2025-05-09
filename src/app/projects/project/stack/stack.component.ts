@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Project } from 'app/projects/project.model';
-import { ICONS } from 'app/skills/icons';
+import { IconService } from 'app/icon.service';
 
 @Component({
      selector: 'app-stack',
@@ -8,11 +8,11 @@ import { ICONS } from 'app/skills/icons';
      styleUrl: './stack.component.scss'
 })
 export class StackComponent {
-    icons = ICONS;
   project = input.required<Project>();
+  private icons = inject(IconService);
 
   getIcon(icon: string) {
-    return this.icons[icon as keyof typeof this.icons];
+    return this.icons.get(icon);
   }
 
   libraries() {

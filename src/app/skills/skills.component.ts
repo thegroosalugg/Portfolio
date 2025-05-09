@@ -1,7 +1,7 @@
-import { Component, ElementRef, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { USER } from 'app/profile/user.profile';
-import { ICONS } from './icons';
 import { heightAnimation } from './skills.animations';
+import { IconService } from 'app/icon.service';
 
 @Component({
      selector: 'app-skills',
@@ -12,18 +12,14 @@ import { heightAnimation } from './skills.animations';
 })
 export class SkillsComponent {
   user   = USER;
-  icons  = ICONS;
   isRow  = signal(false);
   height = signal(328); // initial CSS values
   width  = signal(450);
   list   = viewChild.required<ElementRef>('list');
-
-  getSrc(icon: string) {
-    return `/icons/${icon.toLowerCase()}.svg`;
-  }
+  private icons = inject(IconService);
 
   getIcon(icon: string) {
-    return this.icons[icon as keyof typeof this.icons];
+    return this.icons.get(icon);
   }
 
   toggleGrid() {

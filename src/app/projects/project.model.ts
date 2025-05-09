@@ -5,5 +5,5 @@ export type Project = {
   github: string;
    stack: string[];
     libs: string[];
-  deploy: string[];
+    prod: string[];
 };

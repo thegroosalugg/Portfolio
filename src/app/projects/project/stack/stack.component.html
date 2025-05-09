@@ -13,7 +13,7 @@
   </ul>
   <h2>Deployment</h2>
   <ul>
-    @for (provider of project().deploy; track provider) {
+    @for (provider of project().prod; track provider) {
       <li>
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <title>{{ provider }}</title>
