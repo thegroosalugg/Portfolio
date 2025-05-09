@@ -19,11 +19,14 @@ const transitionConfig = ({ transition }: ViewTransitionInfo) => {
         fragment: 'ignored',
      queryParams: 'ignored',
   } as const;
+  const   navTo = router.getCurrentNavigation()?.finalUrl?.toString();
   const wrapper = document.getElementById('app-router');
-  if (router.isActive(urlTree, config)) {
+  if (navTo === '/projects') {
+    wrapper?.style.setProperty('view-transition-name', 'page-forward');
+  } else if (router.isActive(urlTree, config)) { // navFrom '/projects'
     wrapper?.style.setProperty('view-transition-name', 'page-back');
   } else {
-    wrapper?.style.setProperty('view-transition-name', 'page-forward');
+    transition.skipTransition();
   }
 };
 

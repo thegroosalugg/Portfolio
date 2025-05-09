@@ -96,6 +96,3 @@ a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
 ::view-transition-old(page-back) {
   animation-name: -ua-view-transition-fade-out, zoom-out-leave;
 }
-
-.page-forward { view-transition-name: page-forward; }
-.page-back    { view-transition-name: page-back;    }
