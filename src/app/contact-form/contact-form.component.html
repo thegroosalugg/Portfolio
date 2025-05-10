@@ -1,15 +1,16 @@
+<h1>Get in touch</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <p>
-    <label>Your name</label>
-    <input formControlName="name" />
+    <label for="name">Your name</label>
+    <input id="name" formControlName="name" />
   </p>
     <p>
-    <label>Your email</label>
-    <input formControlName="email" />
+    <label for="email">Your email</label>
+    <input id="email" formControlName="email" />
   </p>
     <p>
-    <label>Your Message</label>
-    <textarea formControlName="message">message goes here...</textarea>
+    <label for="message">Your Message</label>
+    <textarea id="message" formControlName="message" rows="5">message goes here...</textarea>
   </p>
   <button>Send</button>
 </form>
