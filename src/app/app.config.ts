@@ -9,6 +9,7 @@ import {
 } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 const transitionConfig = ({ transition }: ViewTransitionInfo) => {
   const  router = inject(Router);
@@ -45,5 +46,6 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions({ onViewTransitionCreated: transitionConfig }),
     ),
     provideAnimationsAsync(), // *AngularAnimations enabled
+    provideHttpClient(), // *Enable HTTP requests
   ],
 };

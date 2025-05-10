@@ -1,5 +1,5 @@
 h1 {
-  margin: 2rem auto 0;
+  margin: 2rem auto 0.2rem;
   max-width: 450px;
   font-weight: 700;
   font-size: 1.5rem;
@@ -35,7 +35,7 @@ input, textarea {
   border-radius: var(--round);
   background: #ffffff44;
   font-weight: 600;
-  text-shadow: var(--shadow);
+  text-shadow: 0.2px 0.2px 1px var(--bg);
   color: var(--accent);
   transition: var(--transition);
 }

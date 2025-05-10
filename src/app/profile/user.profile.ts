@@ -3,6 +3,7 @@ export const USER = {
      title: 'FrontEnd Developer',
     github: 'https://github.com/thegroosalugg',
   linkedin: 'https://www.linkedin.com/in/vlog/',
+     email: 'https://formspree.io/f/myzwpvlp',
        img: { src: '/user.png', alt: 'User Photo' },
      about: () => 'This is a paragraph. '.repeat(20),
     skills: [

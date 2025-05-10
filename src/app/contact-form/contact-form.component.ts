@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { USER } from 'app/profile/user.profile';
 
 @Component({
      selector: 'app-contact-form',
@@ -8,6 +10,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
      styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
+  private user = USER;
+  private http = inject(HttpClient);
   form = new FormGroup({
        name: new FormControl(),
       email: new FormControl(),
@@ -15,6 +19,9 @@ export class ContactFormComponent {
   });
 
   onSubmit() {
-    console.log(this.form);
+    console.log(this.form.value);
+    this.http.post(this.user.email, this.form.value).subscribe({
+      next: (val) => console.log(val)
+    })
   }
 }
