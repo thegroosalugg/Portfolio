@@ -14,7 +14,6 @@ export class ProjectsComponent {
   projects = PROJECTS;
   private icons = inject(IconService);
 
-
   getStacks({ stack, prod }: Project) {
     return [...stack, ...prod]
   }

@@ -6,4 +6,5 @@ export type Project = {
    stack: string[];
     libs: string[];
     prod: string[];
+   about: { header: string, list: string [] };
 };

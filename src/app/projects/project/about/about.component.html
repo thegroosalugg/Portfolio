@@ -1,2 +1,6 @@
-@let string = 'This is a paragraph. '.repeat(20);
-<p>{{ string }}</p>
+<h2>{{ project().about.header }} </h2>
+<ul>
+  @for (item of project().about.list; track item) {
+    <li>{{ item }}</li>
+  }
+</ul>

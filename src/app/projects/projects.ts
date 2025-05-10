@@ -16,6 +16,20 @@ export const PROJECTS = [
       'Multer',
       'Socket.IO',
     ],
+    about: {
+      header:
+        'Full stack MERN project with REST architecture, focused on modularity and real-time updates.',
+      list: [
+        'Client and server routes protected by auth middleware and guards',
+        'All data fetching handled with custom hooks and `useEffect` only',
+        'Real-time notifications for chats, friend requests, and post replies via sockets',
+        'Initial route fetch followed by live updates using Socket.IO',
+        'Highly modular and reusable component structure keeps code DRY',
+        'Server controllers serve multiple endpoints with shared logic',
+        'Fully responsive with alternate layouts for mobile and landscape',
+        'Clear logging on both client and server, including dependency tracking',
+      ],
+    },
   },
   {
       name: 'd-bay',
@@ -33,6 +47,20 @@ export const PROJECTS = [
       'NodeMailer',
       'Stripe',
     ],
+    about: {
+      header:
+        'First Node/Express project with a focus on server-side rendering, route protection, and robust form handling.',
+      list: [
+        'Session-based retention of submitted form data after validation errors',
+        'All routes protected from unauthorized access with auth middleware',
+        'CSRF protection implemented via custom middleware',
+        'Multer handles file upload and cleanup on failed submissions',
+        'Express Validator for input validation, backed by Mongoose model validation',
+        'EJS template structure mirrors React: one file serves multiple views',
+        'Dynamic GET routes generate templates server-side per request',
+        'Stripe demo integrated to handle checkout payments',
+      ],
+    },
   },
   {
       name: 'geschwindigkeitsbegrenzung',
@@ -42,6 +70,19 @@ export const PROJECTS = [
       prod: ['Firebase'],
      stack: ['TypeScript', 'React', 'CSSModules'],
       libs: ['React Router', 'Framer-Motion'],
+     about: {
+      header:
+        'Quick-paced React game built to aid memorizing German verb-preposition pairs during my B2 course, optimized for mobile play.',
+      list: [
+        'Difficulty setting adjusts timer, scoring, lives, and score thresholds',
+        'Score-triggered items let users pause the timer',
+        'Tracks high scores and difficulty levels attempted',
+        'Includes wordbook with verbs, cases (DAT/ACC), and EN/RU translations',
+        'Sentence builder handles verb types: regular, irregular, reflexive, separable, stative',
+        'Supports both portrait and landscape modes for mobile and desktop',
+        'Game logic fully managed through a clean custom React hook',
+      ],
+    },
   },
   {
       name: 'e-harbour',
@@ -59,6 +100,18 @@ export const PROJECTS = [
       'Mongoose',
       'Multer',
     ],
+    about: {
+      header:
+        'Second React project, introducing a backend with focus on async flows, file handling, and robust client-server error states.',
+      list: [
+        'Live chat system linked to users and listings',
+        'Supports file upload and deletion',
+        'Animated handling of loading and error states across client and server',
+        'Responsive design tailored for mobile and desktop',
+        'All client data fetching handled by custom reusable hook (no third-party libraries)',
+        'Debounced rapid clicking to prevent duplicate actions'
+      ],
+    },
   },
   {
       name: 'andromeda',
@@ -68,5 +121,16 @@ export const PROJECTS = [
       prod: ['Firebase'],
      stack: ['TypeScript', 'React', 'CSSModules'],
       libs: ['React Router', 'Redux', 'Framer-Motion'],
+     about: {
+      header:
+        'My first React project, focused on responsive layouts, animations, form handling, and Redux for state management.',
+      list: [
+        'Covers cart logic, bookings, and user account flow',
+        'Each page styled with a unique layout to highlight variety',
+        'State persisted with Redux and localStorage',
+        'Custom React hook handles form validation and blocks reused booking dates',
+        'Features animated solar system page using Framer Motion',
+      ],
+    },
   },
 ];
