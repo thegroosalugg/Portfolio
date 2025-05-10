@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>
+    <label>Your name</label>
+    <input formControlName="name" />
+  </p>
+    <p>
+    <label>Your email</label>
+    <input formControlName="email" />
+  </p>
+    <p>
+    <label>Your Message</label>
+    <textarea formControlName="message">message goes here...</textarea>
+  </p>
+  <button>Send</button>
+</form>
