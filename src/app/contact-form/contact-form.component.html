@@ -2,15 +2,20 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <p>
     <label for="name">Your name</label>
-    <input id="name" formControlName="name" />
+    <input id="name"  placeholder="John / Joan / Juan / Jean" formControlName="name" />
   </p>
-    <p>
+  <p>
     <label for="email">Your email</label>
-    <input id="email" formControlName="email" />
+    <input id="email" placeholder="user@aol.com" formControlName="email" />
   </p>
-    <p>
+  <p>
     <label for="message">Your Message</label>
-    <textarea id="message" formControlName="message" rows="5">message goes here...</textarea>
+    <textarea
+                   id="message"
+                 rows="5"
+          placeholder="message goes here...."
+      formControlName="message"
+    ></textarea>
   </p>
-  <button>Send</button>
+  <button [disabled]="form.invalid">Send</button>
 </form>

@@ -1,7 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, signal } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { USER } from 'app/profile/user.profile';
+
+const trimValues = (control: AbstractControl) => {
+  if (!control.value.trim()) return { emptyString: true };
+  return null;
+}
+
+const validators = [Validators.required, trimValues];
 
 @Component({
      selector: 'app-contact-form',
@@ -12,16 +19,33 @@ import { USER } from 'app/profile/user.profile';
 export class ContactFormComponent {
   private user = USER;
   private http = inject(HttpClient);
+  private isSubmitting = signal(false);
   form = new FormGroup({
-       name: new FormControl(),
-      email: new FormControl(),
-    message: new FormControl()
+       name: new FormControl('', { validators }),
+      email: new FormControl('', { validators: [...validators, Validators.email] }),
+    message: new FormControl('', { validators })
   });
 
+  private markSubmitted(formGroup: FormGroup) {
+    for (const field in formGroup.controls) {
+      const control = formGroup.get(field);
+      control?.markAsTouched();
+      control?.markAsDirty();
+      if (control instanceof FormGroup) this.markSubmitted(control);
+    }
+  }
+
   onSubmit() {
-    console.log(this.form.value);
+    if (this.isSubmitting()) return;
+    this.markSubmitted(this.form);
+    if (this.form.invalid) return;
+    this.isSubmitting.set(true);
     this.http.post(this.user.email, this.form.value).subscribe({
-      next: (val) => console.log(val)
+      next: (val) => {
+        console.log('Your message was sent.');
+        this.form.reset();
+        this.isSubmitting.set(false);
+      }
     })
   }
 }
