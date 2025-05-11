@@ -1,6 +1,6 @@
 import { ElementRef, Injectable, signal } from '@angular/core';
 
-type Components = 'profile' | 'skills' | 'projects' | 'form';
+type Components = 'profile' | 'skills' | 'projects' | 'project' | 'form';
 
 @Injectable({ providedIn: 'root' })
 export class ScrollService {

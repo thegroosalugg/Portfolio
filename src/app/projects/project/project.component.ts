@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, input, viewChild } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   RedirectCommand,
@@ -13,6 +13,7 @@ import { PROJECTS } from '../projects';
 import { Project } from '../project.model';
 import { FontAwesomeService } from 'app/shared/font.awesome.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ScrollService } from 'app/shared/scroll.service';
 
 @Component({
      selector: 'app-project',
@@ -20,11 +21,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   templateUrl: './project.component.html',
      styleUrl: './project.component.scss'
 })
-export class ProjectComponent {
+export class ProjectComponent implements AfterViewInit {
   project = input.required<Project>();
+   header = viewChild.required<ElementRef>('header');
+  private scrollService = inject(ScrollService);
 
   constructor() {
     inject(FontAwesomeService)
+  }
+
+  ngAfterViewInit() {
+    this.scrollService.init('project', this.header())
+    setTimeout(() => this.scrollService.scrollTo('project'), 500);
   }
 }
 
