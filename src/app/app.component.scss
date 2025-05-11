@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   // gradient && img: url must be shorthand single line. Colors must have transparency
-  background: var(--gradient),
-    url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+  background: var(--gradient), url("/inspiration-geometry.png");
 }
 
 main {

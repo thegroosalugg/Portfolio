@@ -14,6 +14,7 @@ img {
   background: var(--bg);
   width: 200px;
   aspect-ratio: 1;
+  object-fit: contain;
   transition: background 0.5s ease; // needs to be faster than var(--transition)
 }
 

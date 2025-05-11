@@ -20,10 +20,10 @@ import { ScrollService } from './shared/scroll.service';
     ContactFormComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+     styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Portfolio';
+    title = 'Portfolio';
   element = viewChild.required<ElementRef>('scrollTo');
   private scrollService = inject(ScrollService);
 

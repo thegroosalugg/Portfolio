@@ -5,7 +5,6 @@ export const USER = {
   linkedin: 'https://www.linkedin.com/in/vlog/',
      email: 'https://formspree.io/f/myzwpvlp',
        img: { src: '/user.png', alt: 'User Photo' },
-     about: () => 'This is a paragraph. '.repeat(20),
     skills: [
     'TypeScript',
     'React',
@@ -25,4 +24,6 @@ export const USER = {
     'MongoDB',
     'Mongoose',
   ],
+  about:
+    "I'm a career-changer with a background in motor insurance, now focused on frontend development. I’ve trained through Le Wagon and continued with self-study, working with TypeScript, React, Node.js, and Angular 19. I enjoy building clean UIs and solving technical challenges, and I’m currently looking for junior roles in Berlin.",
 };
