@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FontAwesomeService } from 'app/shared/font.awesome.service';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ElementRefService } from 'app/shared/element.ref.service';
 import { USER } from 'app/profile/user.profile';
 
 @Component({
@@ -13,13 +13,13 @@ import { USER } from 'app/profile/user.profile';
 export class ProfileComponent implements AfterViewInit {
   user = USER;
   element = viewChild.required<ElementRef>('scrollTo');
-  private scrollService = inject(ScrollService);
+  private elementService = inject(ElementRefService);
 
   constructor() {
     inject(FontAwesomeService)
   }
 
   ngAfterViewInit() {
-    this.scrollService.init('profile', this.element());
+    this.elementService.init('profile', this.element());
   }
 }

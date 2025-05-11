@@ -5,14 +5,14 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { ScreenHeightDirective } from './shared/screen.height.directive';
-import { ScrollService } from './shared/scroll.service';
+import { ViewHeightDirective } from './shared/view.height.directive';
+import { ElementRefService } from './shared/element.ref.service';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    ScreenHeightDirective,
+    ViewHeightDirective,
     HeaderComponent,
     FooterComponent,
     ProfileComponent,
@@ -25,9 +25,9 @@ import { ScrollService } from './shared/scroll.service';
 export class AppComponent {
     title = 'Portfolio';
   element = viewChild.required<ElementRef>('scrollTo');
-  private scrollService = inject(ScrollService);
+  private elementService = inject(ElementRefService);
 
   ngAfterViewInit() {
-    this.scrollService.init('projects', this.element());
+    this.elementService.init('projects', this.element());
   }
 }

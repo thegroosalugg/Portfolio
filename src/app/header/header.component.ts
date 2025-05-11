@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, computed, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FontAwesomeService } from 'app/shared/font.awesome.service';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ElementRefService } from 'app/shared/element.ref.service';
 import { USER } from 'app/profile/user.profile';
 
 @Component({
@@ -13,8 +13,8 @@ import { USER } from 'app/profile/user.profile';
 })
 export class HeaderComponent implements AfterViewInit {
   user = USER;
-  private    isDarkMode = signal(false);
-  private scrollService = inject(ScrollService);
+  private     isDarkMode = signal(false);
+  private elementService = inject(ElementRefService);
     header = viewChild.required<ElementRef>('header');
   isHidden = signal(false);
    getIcon = computed(() => this.isDarkMode() ? 'moon' : 'sun');
@@ -32,7 +32,7 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.scrollService.setHeight(this.header());
+    this.elementService.init('header', this.header());
   }
 
   toggleTheme() {
@@ -46,6 +46,6 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   scrollTo(index: number) {
-    this.scrollService.scrollTo(this.paths[index]);
+    this.elementService.scrollTo(this.paths[index]);
   }
 }
