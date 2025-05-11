@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
 import { Project } from 'app/projects/project.model';
-import { IconService } from 'app/icon.service';
+import { IconService } from 'app/shared/icon.service';
 
 @Component({
      selector: 'app-stack',

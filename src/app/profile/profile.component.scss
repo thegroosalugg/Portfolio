@@ -1,3 +1,7 @@
+:host {
+  display: block; // set height with directive
+}
+
 article {
   display: flex;
   flex-direction: column;

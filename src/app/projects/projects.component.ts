@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PROJECTS } from './projects';
 import { Project } from './project.model';
 import { RouterLink } from '@angular/router';
-import { IconService } from 'app/icon.service';
+import { IconService } from 'app/shared/icon.service';
 
 @Component({
      selector: 'app-projects',

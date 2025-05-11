@@ -1,6 +1,6 @@
 import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { USER } from 'app/profile/user.profile';
-import { ICONS } from '../../icons';
+import { ICONS } from '../../shared/icons';
 
 // pure CSS height transition.
 // Not as good as Animations - only supported by Chrome/Edge right now

@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { USER } from 'app/profile/user.profile';
 import { heightAnimation } from './skills.animations';
-import { IconService } from 'app/icon.service';
+import { IconService } from 'app/shared/icon.service';
 
 @Component({
      selector: 'app-skills',

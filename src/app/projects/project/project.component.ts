@@ -11,7 +11,7 @@ import {
 } from '@angular/router';
 import { PROJECTS } from '../projects';
 import { Project } from '../project.model';
-import { FontAwesomeService } from 'app/font.awesome.service';
+import { FontAwesomeService } from 'app/shared/font.awesome.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({

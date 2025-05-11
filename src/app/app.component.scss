@@ -1,5 +1,5 @@
 :host {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   // gradient && img: url must be shorthand single line. Colors must have transparency
@@ -10,8 +10,4 @@
 main {
   flex: 1;
   padding: 1rem 10%;
-}
-
-#app-router {
-  min-height: 600px;
 }

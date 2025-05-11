@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FontAwesomeService } from 'app/font.awesome.service';
+import { FontAwesomeService } from 'app/shared/font.awesome.service';
 import { USER } from 'app/profile/user.profile';
 
 @Component({
