@@ -6,7 +6,7 @@
   <section>
     @let icons = ['user', 'folder', 'clone', 'envelope'];
     @for (icon of icons; track icon) {
-      <button (click)="scrollTo($index)">
+      <button (click)="scrollTo($index)" [attr.aria-label]="'scroll to' + paths[$index]">
         <fa-icon [icon]="['far', icon]" />
       </button>
     }
