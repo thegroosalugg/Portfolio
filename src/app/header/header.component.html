@@ -1,0 +1,21 @@
+<header #header>
+  <h2>
+    <span>{{ user.name }}</span>
+    <span>{{ user.title }}</span>
+  </h2>
+  <section>
+    @let icons = ['user', 'folder', 'clone', 'envelope'];
+    @for (icon of icons; track icon) {
+      <button (click)="scrollTo($index)">
+        <fa-icon [icon]="['far', icon]" />
+      </button>
+    }
+  </section>
+  <button class="theme-btn" (click)="toggleTheme()">
+    <fa-icon [icon]="getIcon()" />
+    <span>{{ getName() }}</span>
+  </button>
+</header>
+<button class="banner-btn" (click)="toggleMenu()" aria-label="hide banner">
+  <fa-icon [icon]="'chevron-down'" />
+</button>

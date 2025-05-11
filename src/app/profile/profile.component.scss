@@ -1,0 +1,53 @@
+:host {
+  display: block; // set height with directive
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+img {
+  border-radius: var(--circle);
+  background: var(--bg);
+  width: 200px;
+  aspect-ratio: 1;
+  transition: background 0.5s ease; // needs to be faster than var(--transition)
+}
+
+p {
+  max-width: 400px;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+a {
+  color: var(--accent);
+  border: var(--border);
+  border-radius: var(--round);
+  padding: 0.1rem;
+  width: 100px;
+  text-align: center;
+  transition: var(--transition);
+
+  &:hover {
+    color: var(--gray-200);
+    border-color: transparent;
+    background: var(--hover);
+  }
+
+  ::ng-deep svg { // color inherited, transition isn't
+    transition: inherit;
+  }
+}

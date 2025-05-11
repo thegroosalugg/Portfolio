@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.2rem;
+  color: var(--hover);
+  background: var(--gray-200);
+  transition: var(--transition);
+}
+
+h2 {
+  padding: 0.5rem 0.5rem 0.2rem;
+  font-size: 1.1rem;
+  font-style: oblique;
+  border-bottom: 1px solid var(--hover);
+}
+
+ul {
+  max-height: 100%;
+  padding: 0.5rem 1.5rem;
+  overflow-y: scroll;
+  list-style: square;
+
+  &::-webkit-scrollbar-thumb { background: var(--hover); }
+
+  li { font-weight: 600; }
+}

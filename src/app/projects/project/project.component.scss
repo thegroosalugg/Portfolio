@@ -1,0 +1,110 @@
+:host {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  border: var(--border);
+  background: var(--hover);
+  transition: var(--transition);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: 0.5rem;
+  color: var(--gray-100);
+  border-bottom: 1px solid var(--gray-200); // tab divider
+  transition: var(--transition);
+
+  a {
+    border: 1px solid transparent;
+    transition: var(--transition);
+
+    &:hover, &.active, &.active-last:hover {
+      color: var(--hover);
+      background: var(--gray-200);
+    }
+
+    &.active-last {
+      background: var(--hover);
+      border-color: var(--gray-200);
+      border-bottom-color: var(--hover); // bottom border blends with background
+
+      &:hover { border-bottom-color: var(--gray-200); }
+    }
+  }
+
+  > a {
+    padding: 0.5rem;
+    flex: 1;
+    text-align: end;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: none;
+  }
+
+  section {
+    padding-top: 0.5rem;
+    margin-bottom: -1px; // stack on top of <header> { border-bottom }
+    overflow-x: scroll;
+    &::-webkit-scrollbar { height: 0; width: 0; }
+
+    h2 {
+      padding-left: 0.5rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+    }
+
+    h3 {
+      padding-left: 0.5rem;
+      font-size: 1.4rem;
+    }
+
+    > div {
+      margin-top: 0.2rem;
+      display: flex;
+      gap: 1px;
+
+      a {
+        padding: 0.5rem;
+        border-radius: 4px 4px 0 0;
+
+        &:first-of-type { border-radius: 0 4px 0 0; }
+      }
+    }
+  }
+}
+
+#project-router {
+  height: 336px;
+}
+
+footer {
+  padding: 0.5rem;
+  max-width: 100%;
+  overflow-x: scroll;
+
+  div {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+
+    a {
+      padding: 0.25rem 0.5rem;
+      font-size: 1.2rem;
+      color: var(--gray-100);
+      background: var(--hover);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--round);
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--hover);
+        background: var(--gray-100);
+      }
+    }
+  }
+}

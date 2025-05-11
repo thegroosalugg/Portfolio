@@ -1,0 +1,133 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: transform 1s ease;
+
+  &.hidden {
+    transform: translate(0, -80%);
+  }
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--accent);
+  background: var(--text);
+  border-bottom: var(--border);
+  overflow-x: scroll;
+  transition: var(--transition);
+}
+
+h2 span {
+  display: block;
+  font-family: "Cal Sans", sans-serif;
+  transition: var(--transition);
+
+  &:last-child {
+    font-size: 0.8rem;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 2px;
+    padding: 0.1rem 0.25rem;
+  }
+}
+
+section {
+  position: absolute;
+  left: 50%;
+  bottom: 1.6rem;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  button {
+    width: 16px;
+    background: none;
+    border: none;
+    transition: var(--transition);
+  }
+}
+
+.theme-btn {
+  position: relative;
+  width: 1.8rem;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: var(--border);
+  border-radius: var(--circle);
+  transition: var(--transition);
+
+  span {
+    position: absolute;
+    font-size: 0.5rem;
+    top: 105%;
+    left: 50%;
+    transform: translate(-50%);
+    transition: var(--transition);
+  }
+}
+
+.banner-btn {
+  margin: 0 auto;
+  display: block;
+  background: none;
+  border: none;
+
+  ::ng-deep svg {
+    color: var(--accent);
+    width: 1.2rem;
+    transition: var(--transition);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  header {
+    padding: 0.4rem;
+  }
+
+  h2 span,
+  h2 span:last-child {
+    font-size: 0.5rem;
+    padding: 0 0.1rem;
+  }
+
+  section {
+    bottom: 0.8rem;
+
+    button {
+      width: auto;
+      ::ng-deep svg {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  .theme-btn {
+    width: 1rem;
+    height: 1rem;
+
+    span {
+      font-size: 0.3rem;
+    }
+
+    ::ng-deep svg {
+      width: 0.5rem;
+    }
+  }
+
+  .banner-btn {
+    margin: -0.3rem auto;
+
+    ::ng-deep svg {
+      width: 0.7rem;
+    }
+  }
+}

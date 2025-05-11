@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 100%;
+  padding: 0 1rem;
+  background: var(--gray-200);
+
+  &::-webkit-scrollbar-thumb { background: var(--hover); }
+}
+
+img {
+  box-shadow: 5px 5px 10px #000;
+  margin: auto;
+}
+
+// desktop only
+@media screen and (pointer: fine) {
+  :host {
+    padding: 0;
+  }
+
+  img {
+    max-width: none; // overwrite cssReset (100%)
+    width: auto;
+    height: 336px;
+    border: none;
+  }
+}

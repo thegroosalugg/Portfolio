@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 // #TheLoginovReset
 *, *::before, *::after { box-sizing: border-box; }
 *                      { margin: 0;  padding: 0; }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif; // *replace
   line-height: 1.2;
   -webkit-font-smoothing: antialiased;
 }
@@ -19,12 +19,88 @@ button                           {          cursor: pointer;        }
 
 a, p, h1, h2, h3, h4, h5, h6, button, label, input, textarea, select, option {
   overflow-wrap: break-word;
-      font-size: inherit;
-    font-family: inherit;
-    font-weight: 400;
+           font: inherit;
+          color: inherit;
 }
 
 ::-webkit-scrollbar       { width: 1px; height: 1px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #fff; border-radius: 5px; }
 // ** Reset ends here **
+
+:root {
+  --gray-100: #efefef;
+  --gray-200: #dedede;
+  --gray-300: #cfcfcf;
+  --gray-400: #b3b3b3;
+  --gray-500: #a5a5a5;
+  --gray-600: #6e6e6e;
+  --gray-700: #3e3e3e;
+  --gray-800: #262626;
+  --gray-900: #1a1a1a;
+
+  --green-500: #72964b;
+  --purple-500: #37166f;
+
+  --bg: var(--green-500);
+  --accent: var(--green-500);
+  --text: var(--gray-100);
+  --hover: var(--green-500);
+  --gradient: radial-gradient(#dededeaa, #cfcfcfaa);
+  --shadow: 0.2px 0.2px 1px #000;
+  --border: 1px solid var(--accent);
+  --round: 4px;
+  --circle: 50%;
+  --transition: background 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+// IF colors fade on theme change - set the color/bg again inside component,
+// instead of in app.component.scss which applies color/bg globally
+.dark-theme {
+  --bg: var(--gray-900);
+  --accent: var(--gray-100);
+  --text: var(--purple-500);
+  --hover: var(--purple-500);
+  --border: 1px solid var(--accent);
+  --gradient: radial-gradient(
+    circle farthest-corner at 100% 300%,
+    #ca19a4b1,
+    #37166fff
+  );
+}
+
+// view transitions must be defined globally
+@keyframes zoom-in-enter  { from { transform: scale(1.1); } }
+@keyframes zoom-in-leave  { to   { transform: scale(0.9); } }
+@keyframes zoom-out-enter { from { transform: scale(0.9); } }
+@keyframes zoom-out-leave { to   { transform: scale(1.1); } }
+
+// must name transition as arg
+::view-transition-old(zoom-in), // define duration for both
+::view-transition-new(zoom-in) {
+  animation-duration: 0.7s; // list all animations here you want to play
+  animation-name: -ua-view-transition-fade-in, zoom-in-enter;
+} // -ua-view-transition-fade-in/out - Chrome default opacity fades
+
+::view-transition-old(zoom-in) { // overwrite above exit animations
+  animation-name: -ua-view-transition-fade-out, zoom-in-leave;
+}
+
+::view-transition-old(zoom-out),
+::view-transition-new(zoom-out) {
+  animation-duration: 0.7s;
+  animation-name: -ua-view-transition-fade-in, zoom-out-enter;
+}
+
+::view-transition-old(zoom-out) {
+  animation-name: -ua-view-transition-fade-out, zoom-out-leave;
+}
+
+::view-transition-old(fade),
+::view-transition-new(fade) {
+  animation-duration: 0.7s;
+  animation-name: -ua-view-transition-fade-in;
+}
+
+::view-transition-old(fade) {
+  animation-name: -ua-view-transition-fade-out;
+}

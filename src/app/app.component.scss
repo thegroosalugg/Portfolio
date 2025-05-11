@@ -1,9 +1,10 @@
 :host {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  color: white;
-  background: radial-gradient(ellipse closest-side at center, #363e53, #1c1b1b);
+  // gradient && img: url must be shorthand single line. Colors must have transparency
+  background: var(--gradient),
+    url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 }
 
 main {

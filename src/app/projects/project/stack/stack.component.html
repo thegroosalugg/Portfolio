@@ -1,0 +1,30 @@
+<section>
+  <h2>Languages & Frameworks</h2>
+  <ul>
+    @for (tech of project().stack; track tech) {
+      <li>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>{{ tech }}</title>
+          <path [attr.d]="getIcon(tech)" fill="currentColor" />
+        </svg>
+        {{ tech }}
+      </li>
+    }
+  </ul>
+  <h2>Deployment</h2>
+  <ul>
+    @for (provider of project().prod; track provider) {
+      <li>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title>{{ provider }}</title>
+          <path [attr.d]="getIcon(provider)" fill="currentColor" />
+        </svg>
+        {{ provider }}
+      </li>
+    }
+  </ul>
+</section>
+<section>
+  <h2>Libraries</h2>
+  <pre><code>{{ libraries() }}</code></pre>
+</section>

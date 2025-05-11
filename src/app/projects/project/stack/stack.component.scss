@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: auto;
+  max-height: 100%;
+  padding: 0.5rem 0;
+}
+
+section {
+  flex: 1 1 40%;
+}
+
+h2 {
+  padding: 0.5rem;
+  padding-bottom: 0;
+  color: var(--gray-100);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+ul {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--gray-100);
+
+    svg {
+      width: 1.2rem;
+    }
+  }
+}
+
+pre {
+  background: #111;
+  color: #eee;
+  padding: 1rem;
+  margin-top: 0.2rem;
+  border-radius: 8px 0 0 8px;
+  font-family: monospace;
+  user-select: all;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
