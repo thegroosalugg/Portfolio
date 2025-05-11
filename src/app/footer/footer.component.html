@@ -1,3 +1,14 @@
 <footer>
-  <p>{{ user.name }}</p>
+  <p>
+    <fa-icon icon="code-branch" />
+    {{ user.name }}
+  </p>
+  <p>
+    This App was created with
+    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <title>Angular</title>
+      <path [attr.d]="angularIcon()" fill="currentColor" />
+    </svg>
+    ngular
+  </p>
 </footer>
