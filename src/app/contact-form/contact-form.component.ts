@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { USER } from 'app/profile/user.profile';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ElementRefService } from 'app/shared/element.ref.service';
 
 const trimValues = (control: AbstractControl) => {
   if (!control.value.trim()) return { emptyString: true };
@@ -20,8 +20,8 @@ const validators = [Validators.required, trimValues];
 export class ContactFormComponent implements AfterViewInit {
   private user = USER;
   private http = inject(HttpClient);
-  private  isSubmitting = signal(false);
-  private scrollService = inject(ScrollService);
+  private   isSubmitting = signal(false);
+  private elementService = inject(ElementRefService);
   element = viewChild.required<ElementRef>('scrollTo');
 
   form = new FormGroup({
@@ -31,7 +31,7 @@ export class ContactFormComponent implements AfterViewInit {
   });
 
   ngAfterViewInit() {
-    this.scrollService.init('form', this.element());
+    this.elementService.init('form', this.element());
   }
 
   private markSubmitted(formGroup: FormGroup) {

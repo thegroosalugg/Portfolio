@@ -1,10 +1,10 @@
 <app-header />
 <main>
-  <app-profile screenHeight />
-  <app-skills screenHeight />
-  <div id="app-router" screenHeight #scrollTo>
+  <app-profile appView />
+  <app-skills appView />
+  <div id="app-router" appView #scrollTo>
     <router-outlet />
   </div>
-  <app-contact-form screenHeight="320" />
+  <app-contact-form appView="short" />
 </main>
 <app-footer />

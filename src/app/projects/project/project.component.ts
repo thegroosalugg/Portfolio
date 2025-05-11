@@ -13,7 +13,7 @@ import { PROJECTS } from '../projects';
 import { Project } from '../project.model';
 import { FontAwesomeService } from 'app/shared/font.awesome.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ElementRefService } from 'app/shared/element.ref.service';
 
 @Component({
      selector: 'app-project',
@@ -24,15 +24,15 @@ import { ScrollService } from 'app/shared/scroll.service';
 export class ProjectComponent implements AfterViewInit {
   project = input.required<Project>();
    header = viewChild.required<ElementRef>('header');
-  private scrollService = inject(ScrollService);
+  private elementService = inject(ElementRefService);
 
   constructor() {
     inject(FontAwesomeService)
   }
 
   ngAfterViewInit() {
-    this.scrollService.init('project', this.header())
-    setTimeout(() => this.scrollService.scrollTo('project'), 500);
+    this.elementService.init('project', this.header())
+    setTimeout(() => this.elementService.scrollTo('project'), 500);
   }
 }
 

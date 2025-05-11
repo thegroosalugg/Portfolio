@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, inject, signal, viewChild } from 
 import { USER } from 'app/profile/user.profile';
 import { heightAnimation } from './skills.animations';
 import { IconService } from 'app/shared/icon.service';
-import { ScrollService } from 'app/shared/scroll.service';
+import { ElementRefService } from 'app/shared/element.ref.service';
 
 @Component({
      selector: 'app-skills',
@@ -18,11 +18,11 @@ export class SkillsComponent implements AfterViewInit {
   width   = signal(450);
   list    = viewChild.required<ElementRef>('list');
   element = viewChild.required<ElementRef>('scrollTo');
-  private   iconService = inject(IconService);
-  private scrollService = inject(ScrollService);
+  private    iconService = inject(IconService);
+  private elementService = inject(ElementRefService);
 
   ngAfterViewInit() {
-    this.scrollService.init('skills', this.element());
+    this.elementService.init('skills', this.element());
   }
 
   getIcon(icon: string) {
