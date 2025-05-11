@@ -1,7 +1,8 @@
-import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { USER } from 'app/profile/user.profile';
 import { heightAnimation } from './skills.animations';
 import { IconService } from 'app/shared/icon.service';
+import { ScrollService } from 'app/shared/scroll.service';
 
 @Component({
      selector: 'app-skills',
@@ -10,16 +11,22 @@ import { IconService } from 'app/shared/icon.service';
      styleUrl: './skills.component.scss',
    animations: [heightAnimation],
 })
-export class SkillsComponent {
-  user   = USER;
-  isRow  = signal(false);
-  height = signal(328); // initial CSS values
-  width  = signal(450);
-  list   = viewChild.required<ElementRef>('list');
-  private icons = inject(IconService);
+export class SkillsComponent implements AfterViewInit {
+  user    = USER;
+  isRow   = signal(false);
+  height  = signal(328); // initial CSS values
+  width   = signal(450);
+  list    = viewChild.required<ElementRef>('list');
+  element = viewChild.required<ElementRef>('scrollTo');
+  private   iconService = inject(IconService);
+  private scrollService = inject(ScrollService);
+
+  ngAfterViewInit() {
+    this.scrollService.init('skills', this.element());
+  }
 
   getIcon(icon: string) {
-    return this.icons.get(icon);
+    return this.iconService.get(icon);
   }
 
   toggleGrid() {

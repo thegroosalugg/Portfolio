@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { USER } from 'app/profile/user.profile';
+import { ScrollService } from 'app/shared/scroll.service';
 
 const trimValues = (control: AbstractControl) => {
   if (!control.value.trim()) return { emptyString: true };
@@ -16,15 +17,22 @@ const validators = [Validators.required, trimValues];
   templateUrl: './contact-form.component.html',
      styleUrl: './contact-form.component.scss'
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements AfterViewInit {
   private user = USER;
   private http = inject(HttpClient);
-  private isSubmitting = signal(false);
+  private  isSubmitting = signal(false);
+  private scrollService = inject(ScrollService);
+  element = viewChild.required<ElementRef>('scrollTo');
+
   form = new FormGroup({
        name: new FormControl('', { validators }),
       email: new FormControl('', { validators: [...validators, Validators.email] }),
     message: new FormControl('', { validators })
   });
+
+  ngAfterViewInit() {
+    this.scrollService.init('form', this.element());
+  }
 
   private markSubmitted(formGroup: FormGroup) {
     for (const field in formGroup.controls) {
