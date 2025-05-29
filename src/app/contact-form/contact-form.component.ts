@@ -5,7 +5,7 @@ import { USER } from 'app/profile/user.profile';
 import { ElementRefService } from 'app/shared/element.ref.service';
 
 const trimValues = (control: AbstractControl) => {
-  if (!control.value.trim()) return { emptyString: true };
+  if (!control.value?.trim()) return { emptyString: true };
   return null;
 }
 
