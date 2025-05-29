@@ -30,6 +30,7 @@ export class ContactFormComponent implements AfterViewInit {
   private   isSubmitting = signal(false);
   private elementService = inject(ElementRefService);
   element = viewChild.required<ElementRef>('scrollTo');
+  showToolTip = signal(false);
 
   form = new FormGroup({
        name: new FormControl('', { validators }),
@@ -60,6 +61,8 @@ export class ContactFormComponent implements AfterViewInit {
         console.log('Your message was sent.');
         this.form.reset();
         this.isSubmitting.set(false);
+        this.showToolTip.set(true);
+        setTimeout(() => this.showToolTip.set(false), 3000);
       },
        error: ({ error }) => { // formspring errors have heavy nesting
         console.error('HELLO! Form submission failed', error.errors);

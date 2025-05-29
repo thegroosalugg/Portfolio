@@ -31,7 +31,7 @@ li {
   animation: flash-out 1s ease;
 
   @starting-style {
-    animation: flash-out 5s ease !important;
+    animation: flash-out 5s ease;
     animation-duration: 0s;
   }
 

@@ -85,3 +85,18 @@ button {
     pointer-events: none;
   }
 }
+
+.tool-tip {
+  padding: 0.2rem 1rem;
+  align-self: center;
+  color: var(--accent);
+  border: var(--border);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.5s ease-in-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
