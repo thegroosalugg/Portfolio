@@ -9,6 +9,13 @@ const trimValues = (control: AbstractControl) => {
   return null;
 }
 
+// Validators.email is terrible. Custom logic is a must.
+const validEmail = (control: AbstractControl) => {
+  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!pattern.test(control.value)) return { email: true };
+  return null;
+};
+
 const validators = [Validators.required, trimValues];
 
 @Component({
@@ -26,7 +33,7 @@ export class ContactFormComponent implements AfterViewInit {
 
   form = new FormGroup({
        name: new FormControl('', { validators }),
-      email: new FormControl('', { validators: [...validators, Validators.email] }),
+      email: new FormControl('', { validators: [...validators, validEmail] }),
     message: new FormControl('', { validators })
   });
 
@@ -52,6 +59,10 @@ export class ContactFormComponent implements AfterViewInit {
       next: (val) => {
         console.log('Your message was sent.');
         this.form.reset();
+        this.isSubmitting.set(false);
+      },
+       error: ({ error }) => { // formspring errors have heavy nesting
+        console.error('HELLO! Form submission failed', error.errors);
         this.isSubmitting.set(false);
       }
     })
