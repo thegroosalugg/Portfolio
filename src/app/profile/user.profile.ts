@@ -8,6 +8,7 @@ export const USER = {
     skills: [
     'TypeScript',
     'React',
+    'Next.js',
     'Angular',
     'Node.js',
     'Express',

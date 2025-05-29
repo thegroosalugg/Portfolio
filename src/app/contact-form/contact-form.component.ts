@@ -5,9 +5,16 @@ import { USER } from 'app/profile/user.profile';
 import { ElementRefService } from 'app/shared/element.ref.service';
 
 const trimValues = (control: AbstractControl) => {
-  if (!control.value.trim()) return { emptyString: true };
+  if (!control.value?.trim()) return { emptyString: true };
   return null;
 }
+
+// Validators.email is terrible. Custom logic is a must.
+const validEmail = (control: AbstractControl) => {
+  const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!pattern.test(control.value)) return { email: true };
+  return null;
+};
 
 const validators = [Validators.required, trimValues];
 
@@ -23,10 +30,11 @@ export class ContactFormComponent implements AfterViewInit {
   private   isSubmitting = signal(false);
   private elementService = inject(ElementRefService);
   element = viewChild.required<ElementRef>('scrollTo');
+  showToolTip = signal(false);
 
   form = new FormGroup({
        name: new FormControl('', { validators }),
-      email: new FormControl('', { validators: [...validators, Validators.email] }),
+      email: new FormControl('', { validators: [...validators, validEmail] }),
     message: new FormControl('', { validators })
   });
 
@@ -52,6 +60,12 @@ export class ContactFormComponent implements AfterViewInit {
       next: (val) => {
         console.log('Your message was sent.');
         this.form.reset();
+        this.isSubmitting.set(false);
+        this.showToolTip.set(true);
+        setTimeout(() => this.showToolTip.set(false), 3000);
+      },
+       error: ({ error }) => { // formspring errors have heavy nesting
+        console.error('HELLO! Form submission failed', error.errors);
         this.isSubmitting.set(false);
       }
     })
