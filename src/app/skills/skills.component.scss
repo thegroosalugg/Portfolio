@@ -50,11 +50,6 @@ li {
   svg {
     min-width: 1.2rem;
   }
-
-  &:hover {
-    background: var(--hover);
-    color: var(--gray-100);
-  }
 }
 
 @keyframes scroll-x {
@@ -71,5 +66,12 @@ li {
   li {
     p { font-size: 0.9rem; }
     svg { min-width: 1rem; }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  li:hover {
+    background: var(--hover);
+    color: var(--gray-100);
   }
 }

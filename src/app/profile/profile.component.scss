@@ -41,14 +41,12 @@ a {
   width: 100px;
   text-align: center;
   transition: var(--transition);
+}
 
-  &:hover {
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
     color: var(--gray-200);
     border-color: transparent;
     background: var(--hover);
-  }
-
-  ::ng-deep svg { // color inherited, transition isn't
-    transition: inherit;
   }
 }
