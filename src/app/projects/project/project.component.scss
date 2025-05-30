@@ -20,7 +20,7 @@ header {
     border: 1px solid transparent;
     transition: var(--transition);
 
-    &:hover, &.active, &.active-last:hover {
+    &.active {
       color: var(--hover);
       background: var(--gray-200);
     }
@@ -29,8 +29,6 @@ header {
       background: var(--hover);
       border-color: var(--gray-200);
       border-bottom-color: var(--hover); // bottom border blends with background
-
-      &:hover { border-bottom-color: var(--gray-200); }
     }
   }
 
@@ -105,6 +103,16 @@ footer {
         color: var(--hover);
         background: var(--gray-100);
       }
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  header {
+    a:hover, a.active-last:hover {
+      color: var(--hover);
+      background: var(--gray-200);
+      border-bottom-color: var(--gray-200);
     }
   }
 }
