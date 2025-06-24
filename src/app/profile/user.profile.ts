@@ -1,6 +1,6 @@
 export const USER = {
       name: 'Victor Loginov',
-     title: 'FrontEnd Developer',
+     title: 'FullStack Developer',
     github: 'https://github.com/thegroosalugg',
   linkedin: 'https://www.linkedin.com/in/vlog/',
      email: 'https://formspree.io/f/myzwpvlp',
