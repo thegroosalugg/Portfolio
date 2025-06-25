@@ -1,4 +1,26 @@
 export const PROJECTS = [
+    {
+      name: 'shopify',
+     title: 'Next E-Commerce Demo',
+    github: 'https://github.com/thegroosalugg/NextOnTheMenu/tree/main/05-project',
+      link: 'https://shopify-nu-six.vercel.app/',
+      prod: ['Vercel'],
+     stack: ['TypeScript', 'Next.js', 'MongoDB', 'TailwindCSS'],
+      libs: ['Stripe'],
+     about: {
+      header:
+        'Minimalist Next.js e-commerce app with Tailwind and Mongo, focused on clean code, caching, and full responsiveness.',
+      list: [
+        'Small, reusable component set with clear, readable structure',
+        'Cached server components for deduplicated and efficient data updates',
+        'Parallel routes enable isolated, independent fetch logic',
+        'Custom class-based models ensure type safety across client and server',
+        'Dark mode support and fully responsive layout for all devices',
+        'Includes custom MJS scripts for rapid route and component generation',
+        'Uses only essential dependencies: Next 15, Tailwind 4, MongoDB, Stripe',
+      ],
+    },
+  },
   {
       name: 'friendface',
      title: 'Social Media Clone',
